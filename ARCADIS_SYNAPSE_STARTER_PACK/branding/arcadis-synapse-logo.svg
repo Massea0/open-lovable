@@ -1,0 +1,87 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Définition des gradients -->
+  <defs>
+    <!-- Gradient principal synapse -->
+    <linearGradient id="synapseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF00FF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00D4FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00FF88;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradient pour le texte -->
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00FF88;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Effet de lueur -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Animation de pulsation -->
+    <animate id="pulse" attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </defs>
+  
+  <!-- Logo Synapse Neural -->
+  <g id="synapse-icon">
+    <!-- Neurone gauche -->
+    <circle cx="20" cy="30" r="8" fill="url(#synapseGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Connexions synaptiques -->
+    <path d="M 28 30 Q 40 25, 52 30" stroke="url(#synapseGradient)" stroke-width="2" fill="none" opacity="0.8">
+      <animate attributeName="stroke-width" values="2;3;2" dur="1.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 28 30 Q 40 35, 52 30" stroke="url(#synapseGradient)" stroke-width="2" fill="none" opacity="0.8">
+      <animate attributeName="stroke-width" values="2;3;2" dur="1.5s" begin="0.5s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Neurone droit -->
+    <circle cx="60" cy="30" r="10" fill="none" stroke="url(#synapseGradient)" stroke-width="2" filter="url(#glow)">
+      <animate attributeName="r" values="10;12;10" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Points de connexion -->
+    <circle cx="40" cy="25" r="2" fill="#00D4FF" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="40" cy="35" r="2" fill="#00FF88" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="1s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Texte ARCADIS -->
+  <text x="75" y="28" font-family="Space Grotesk, Inter, sans-serif" font-size="18" font-weight="700" fill="url(#textGradient)">
+    ARCADIS
+  </text>
+  
+  <!-- Texte SYNAPSE -->
+  <text x="75" y="44" font-family="Space Grotesk, Inter, sans-serif" font-size="14" font-weight="500" fill="#B8BCC8">
+    SYNAPSE
+  </text>
+  
+  <!-- Ligne de séparation animée -->
+  <rect x="75" y="48" width="80" height="1" fill="url(#synapseGradient)" opacity="0.5">
+    <animate attributeName="width" values="0;80;0" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Particules flottantes pour effet futuriste -->
+  <circle cx="160" cy="20" r="1" fill="#00D4FF" opacity="0.6">
+    <animate attributeName="cy" values="20;40;20" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="170" cy="40" r="1" fill="#00FF88" opacity="0.6">
+    <animate attributeName="cy" values="40;20;40" dur="4s" begin="1s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0" dur="4s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="180" cy="30" r="1" fill="#FF00FF" opacity="0.6">
+    <animate attributeName="cx" values="180;160;180" dur="4s" begin="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0" dur="4s" begin="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>
