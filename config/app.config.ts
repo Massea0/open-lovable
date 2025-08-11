@@ -52,6 +52,69 @@ export const appConfig = {
     
     // Max tokens for truncation recovery
     truncationRecoveryMaxTokens: 4000,
+    
+    // Dual-Agent System Configuration
+    dualAgent: {
+      enabled: true,
+      
+      // Claude Opus - L'Architecte
+      architect: {
+        model: 'anthropic/claude-3-opus-20240229',
+        displayName: 'Claude Opus (Architecte)',
+        temperature: 0.3, // Basse pour cohérence architecturale
+        maxTokens: 4096,
+        persistDocumentation: true,
+        documentationPath: '.architect-docs',
+        
+        // Limites de communication
+        maxInstructionsPerTask: 5,
+        maxInstructionLength: 500,
+        
+        // Tracking et métriques
+        enableMetrics: true,
+        metricsRetentionDays: 30,
+      },
+      
+      // Claude 3.5 Sonnet - L'Exécutant
+      executor: {
+        model: 'anthropic/claude-3-5-sonnet-20241022',
+        displayName: 'Claude 3.5 Sonnet (Exécutant)',
+        temperature: 0.5, // Équilibre créativité/précision
+        maxTokens: 8192,
+        
+        // Reset automatique
+        autoReset: true,
+        resetThreshold: 3, // Reset après 3 erreurs consécutives
+        preserveContext: false, // Ne pas garder le contexte après reset
+        
+        // Limites d'exécution
+        maxExecutionTime: 120000, // 2 minutes max par tâche
+        maxRetries: 2,
+      },
+      
+      // Communication entre agents
+      communication: {
+        protocol: 'structured', // 'structured' ou 'natural'
+        requireValidation: true,
+        logAllCommunication: true,
+        communicationLogPath: '.agent-communication',
+        
+        // Format des messages
+        messageFormat: {
+          includeTimestamp: true,
+          includeMetrics: true,
+          includeDiff: true,
+        },
+      },
+      
+      // Stratégies de fallback
+      fallback: {
+        enabled: true,
+        singleAgentModel: 'anthropic/claude-sonnet-4-20250514',
+        triggerOnArchitectError: true,
+        triggerOnExecutorTimeout: true,
+      },
+    },
   },
   
   // Code Application Configuration
@@ -86,6 +149,21 @@ export const appConfig = {
     
     // Maximum recent messages to send as context
     maxRecentMessagesContext: 20,
+    
+    // Dual-Agent UI Configuration
+    dualAgentUI: {
+      showAgentIndicators: true,
+      showCommunicationFlow: true,
+      showMetrics: true,
+      splitView: true, // Afficher architecte et exécutant côte à côte
+      
+      // Couleurs pour différencier les agents
+      agentColors: {
+        architect: '#8B5CF6', // Violet pour Opus
+        executor: '#3B82F6', // Bleu pour Sonnet
+        system: '#10B981', // Vert pour système
+      },
+    },
   },
   
   // Development Configuration
