@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { arcadisSynapseConfig } from '@/config/arcadis-synapse.config';
+import ModelSelector from '@/components/ModelSelector';
+import { DEFAULT_MODELS } from '@/config/models.config';
 
 interface SynapseMessage {
   id: string;
@@ -26,6 +28,10 @@ export function ArcadisSynapseInterface() {
   const [neuralActivity, setNeuralActivity] = useState<NeuralActivity[]>([]);
   const [mode, setMode] = useState<'auto' | 'cortex' | 'neuron'>('auto');
   const [systemStatus, setSystemStatus] = useState('ready');
+  
+  // États pour les modèles sélectionnés
+  const [architectModel, setArchitectModel] = useState(DEFAULT_MODELS.architect);
+  const [executorModel, setExecutorModel] = useState(DEFAULT_MODELS.executor);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const activityEndRef = useRef<HTMLDivElement>(null);
@@ -178,6 +184,19 @@ export function ArcadisSynapseInterface() {
           </div>
           
           <div className="flex items-center gap-4">
+            {/* Sélecteurs de modèles */}
+            <ModelSelector
+              role="architect"
+              selectedModelId={architectModel}
+              onModelChange={setArchitectModel}
+            />
+            <ModelSelector
+              role="executor"
+              selectedModelId={executorModel}
+              onModelChange={setExecutorModel}
+            />
+            
+            {/* Mode de fonctionnement */}
             <select
               value={mode}
               onChange={(e) => setMode(e.target.value as any)}
