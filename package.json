@@ -1,7 +1,10 @@
 {
-  "name": "open-lovable",
-  "version": "0.1.0",
+  "name": "arcadis-synapse",
+  "version": "1.0.0-enterprise",
   "private": true,
+  "description": "Arcadis Synapse™ - Intelligence Architecturale Augmentée",
+  "author": "Arcadis Tech",
+  "license": "PROPRIETARY",
   "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
