@@ -53,16 +53,16 @@
 
 ### 2.1 Benchmark des Leaders
 
-| Critère | **Cursor** | **Replit** | **Lovable** | **Vercel v0** | **Nous (Cible)** |
-|---------|------------|------------|-------------|---------------|------------------|
-| **Éditeur de code** | VSCode fork | Monaco custom | ❌ | ❌ | Monaco/CodeMirror |
-| **Exécution** | Local | Cloud containers | E2B | Edge Functions | E2B + Docker |
-| **Collaboration** | ❌ | ✅ Multiplayer | ❌ | ❌ | ✅ À implémenter |
-| **IA intégrée** | GPT-4 | Multiple | Claude | GPT-4 | **Dual-agent** |
-| **Persistance** | Local | Cloud DB | Session only | Vercel KV | PostgreSQL + S3 |
-| **Déploiement** | ❌ | ✅ | ❌ | ✅ Vercel | ✅ Multi-cloud |
-| **Prix** | $20/mois | $7-25/mois | Gratuit (beta) | $20/mois | $15-30/mois |
-| **USP** | IDE local IA | Multiplayer | Simple | UI generation | **Architecture IA** |
+| Critère               | **Cursor** | **Replit** | **Lovable** | **Vercel v0** | **Nous (Cible)** |
+|---------              |------------|------------|-------------|---------------|------------------|
+| **Éditeur de code**   | VSCode fork | Monaco custom | ❌ | ❌ | Monaco/CodeMirror |
+| **Exécution**         | Local | Cloud containers | E2B | Edge Functions | E2B + Docker |
+| **Collaboration**     | ❌ | ✅ Multiplayer | ❌ | ❌ | ✅ À implémenter |
+| **IA intégrée**       | GPT-4 | Multiple | Claude | GPT-4 | **Dual-agent** |
+| **Persistance**       | Local | Cloud DB | Session only | Vercel KV | PostgreSQL + S3 |
+| **Déploiement**       | ❌ | ✅ | ❌ | ✅ Vercel | ✅ Multi-cloud |
+| **Prix**              | $20/mois | $7-25/mois | Gratuit (beta) | $20/mois | $15-30/mois |
+| **USP**               | IDE local IA | Multiplayer | Simple | UI generation | **Architecture IA** |
 
 ### 2.2 Forces à répliquer
 
