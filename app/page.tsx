@@ -1,7 +1,7 @@
 'use client';
 
-import { ArcadisSynapseInterface } from '@/components/ArcadisSynapseInterface';
+import { ArcadisSynapseProd } from '@/components/ArcadisSynapseProd';
 
 export default function Page() {
-  return <ArcadisSynapseInterface />;
+  return <ArcadisSynapseProd />;
 }
